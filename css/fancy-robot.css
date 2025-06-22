@@ -34,7 +34,11 @@
     height: 50px;
     width: 50px;
     background-image: url(https://picsum.photos/seed/picsum/200/300);
+    animation: rotating 1s infinite;
+    
+    
 }
+
 
 .robot-eye-right {
     position: absolute;
@@ -45,28 +49,40 @@
     height: 50px;
     width: 50px;
     opacity: 50%;
+    transition: transfrom 3s ease;
+    
+}
+.robot-eye-right:hover {
+  transform: translateX(50px);
+  transform: translateX(-50px);
+  border-color: #000046;
+  background-color: aqua;
 }
 
 .robot-ear-left {
     position: relative;
     bottom: 25%;
-    left: 17.8%;
+    left: 18.1%;
     width: 0;
-      height: 0;
-      border-top: 50px solid transparent;
-      border-right: 100px solid blue;
-      border-bottom: 50px solid transparent;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid blue;
+    border-bottom: 50px solid transparent;
+    animation: moveBackandFourth 2s ease-in-out infinite;
 }
+
+
 
 .robot-ear-right {
     position: absolute;
     bottom: 46%;
-    right: 32.7%;
+    right: 33.3%;
     width: 0;
     height: 0;
     border-top: 50px solid transparent;
     border-left: 100px solid orange;
     border-bottom: 50px solid transparent;
+    animation: spin 2s infinite
 }
 
 .robot-nose {
@@ -77,13 +93,12 @@
     width:70px;
     height:100px;
     background: red;
-
+    animation: scale 2s infinite linear;
 }
 .mouth {
   width: 240px;
   height: 60px;
   background-color: black;
-  
   border: 10px solid black;
   display: flex;
   flex-direction: column;
@@ -93,13 +108,52 @@
   bottom: 30px;
   left: 27%;
   padding: 5px;
+  animation: mouth 4s infinite  ease-in-out;
   
 }
+
+
+@keyframes mouth {
+  0% {transform: scaleY(1) translateY(0);}
+  25% {transform: scaleY(0.7) translateY(5px);}
+  50% {transform: scaleY(0.9)translateY(2px)}
+  75% {transform: scaleY(0.6)translateY(6px)}
+  100% {transform: scaleY(1) translateY(0);}
+}
+@keyframes moveBackandFourth {
+  0% {transform:  translateX(0);}
+  50% { transform: translateX(-200px);}
+  75% { opacity: 0;}
+  100% {transform:  translateX(0);}
+}
+@keyframes spin {
+  0% {transform:  rotate(0deg);}
+  100% {transform:  rotate(360deg);}
+}
+@keyframes UpandDown {
+  0% {transform:  translateY(0);}
+  100% {transform:  translateY(-30px);}
+}
+@keyframes scale {
+  0% {transform:  translateY(0);}
+  25% {transform: scale(1.4)}
+  50% {transform: translateY(-5px)}
+  100% {transform: translateY(0)}
+}
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(45deg);
+  }
+}
+
 .robot-teeth {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    gap: 4px;
+    gap: 4px; 
   }
   
  
@@ -128,6 +182,7 @@
     
   }
 
+
 .robot-hair-style{
     position: absolute;
     bottom: 75%;
@@ -135,9 +190,7 @@
     width: 100%;
     display: flex;
     gap: 60px;
-   
-    
-
+    animation: UpandDown 2s infinite;
 }
 
 .robot-hair-one {
